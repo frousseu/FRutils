@@ -1,0 +1,10 @@
+Package: FRutils
+Type: Package
+Title: Useful functions
+Version: 0.0
+Date: 2016-10-25
+Author: Francois Rousseu
+Maintainer: Francois Rousseu <francoisrousseu@hotmail.com>
+Depends: sp, magrittr
+Description: Useful tools
+License: GPL 2.0
