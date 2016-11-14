@@ -16,6 +16,15 @@ hexgrid<-function(
 	if(!is.null(width) && !is.null(n)){
 		warning("Only \"width\" will be used")
 	}
+	prjini<-NULL
+	if(!is.projected(x)){
+		prjini<-proj4string(x)
+		prj<-paste0("+proj=laea +lat_0=",mean(coordinates(x)[,2])," +lon_0=",mean(coordinates(x)[,2]))
+		
+		x<-spTransform(x,CRS(prj))
+	}
+	
+	
 	region<-gConvexHull(x)
 	if(!is.null(buffer)){
 		region<-gBuffer(region,width=buffer)
@@ -42,7 +51,11 @@ hexgrid<-function(
  	 o<-apply(o,1,function(i){!all(is.na(i))})
  }
  grid<-grid[o,]
+ if(!is.null(prjini)){
+   grid<-spTransform(grid,CRS(prjini))
+ }
  grid
+
 }
 
 

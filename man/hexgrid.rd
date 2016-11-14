@@ -20,7 +20,7 @@ hexgrid(x,width=NULL,n=NULL,buffer=NULL,convex=TRUE,seed=1)
   \item{seed}{A seed to obtain the same grid since it is based on \code{\link{spsample}}.}
 }
 \details{
- Currently, when \code{x} is not projected, values will be understood as degrees.
+ When \code{x} is not projected, it is projected using laea and centered on mean x and y values and given back with the initial CRS. Better to input projected data anyway for displaying...
 }
 \value{
  A \code{\link{spatialPolygonsDataFrame}} hexagonal grid overlapping \code{x}.
