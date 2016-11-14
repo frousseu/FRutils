@@ -5,6 +5,6 @@ Version: 0.0
 Date: 2016-10-25
 Author: Francois Rousseu
 Maintainer: Francois Rousseu <francoisrousseu@hotmail.com>
-Depends: sp, magrittr
+Depends: sp, magrittr, hexbin
 Description: Useful tools
 License: GPL 2.0
