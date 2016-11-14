@@ -48,7 +48,11 @@ hexgrid<-function(
    o<-!is.na(over(grid,region))
  }else{
  	 o<-over(grid,x)
- 	 o<-apply(o,1,function(i){!all(is.na(i))})
+ 	 if(!is.null(dim(o))){
+ 	   o<-apply(o,1,function(i){!all(is.na(i))})
+ 	 }else{
+ 	   o<-!is.na(o)	
+ 	 }
  }
  grid<-grid[o,]
  if(!is.null(prjini)){
