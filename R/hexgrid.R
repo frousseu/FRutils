@@ -24,8 +24,12 @@ hexgrid<-function(
 		x<-spTransform(x,CRS(prj))
 	}
 	
+	if(convex){
+	  region<-gConvexHull(x)
+	}else{
+	  region<-FRutils:::bbox2pol(x) # gConvexHull is too slow
+	}
 	
-	region<-gConvexHull(x)
 	if(!is.null(buffer)){
 		region<-gBuffer(region,width=buffer)
 	}
