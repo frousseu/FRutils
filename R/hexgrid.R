@@ -62,6 +62,8 @@ hexgrid<-function(
  if(!is.null(prjini)){
    grid<-spTransform(grid,CRS(prjini))
  }
+ grid<-spChFIDs(grid,as.character(seq_along(grid)))
+ grid[,"id"]<-as.character(seq_along(grid))
  grid
 
 }
