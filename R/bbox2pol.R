@@ -1,11 +1,25 @@
 bbox2pol<-function(
 	
 	x,
-	ex=NULL
+	ex=NULL,
+	proj4string=""
 	
 ){
 	
-	bb<-bbox(x)
+	if(missing(x)){
+		 bb<-matrix(par("usr"),ncol=2,byrow=TRUE)
+		 prj<-proj4string
+	}else{
+		 if(inherits(x,"Spatial")){
+			  bb<-bbox(x)
+			  prj<-proj4string(x)
+		 }else{
+			  bb<-matrix(x,ncol=2,byrow=TRUE)
+			  prj<-proj4string
+		 }
+	}
+	
+	
 	if(!is.null(ex)){
 		bb<-bb+matrix(c(-ex,ex,-ex,ex),nrow=2,byrow=TRUE)
 	}
@@ -15,6 +29,11 @@ bbox2pol<-function(
 		list %>% 
 		Polygons(ID=1) %>% 
 		list %>% 
-		SpatialPolygons(proj4string=CRS(proj4string(x)))
+		SpatialPolygons ->
+		ans
+	
+	proj4string(ans)<-prj
+	
+	ans
 	
 }
