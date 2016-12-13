@@ -10,7 +10,7 @@ kde2pol<-function(
 	if(missing(prj)){
 		stop("Missing \"prj\" argument")
 	}
-	co<-with(k,contourLines(x=eval.points[[1]],y=eval.points[[2]],z=estimate,levels=cont[paste0(levels,"%")]))
+	co<-with(k,contourLines(x=eval.points[[1]],y=eval.points[[2]],z=estimate,levels=cont[paste0(100-levels,"%")]))
 	val<-sapply(co,function(x){x$level})
 	co<-lapply(unique(val),function(x){co[val==x]})
 	poly<-lapply(co,function(j){
