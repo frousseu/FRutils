@@ -7,8 +7,8 @@ kde2pol<-function(
 	
 	){
 	
-	if(missing(prj)){
-		stop("Missing \"prj\" argument")
+	if(missing(proj4string)){
+		stop("Missing \"proj4string\" argument")
 	}
 	co<-with(k,contourLines(x=eval.points[[1]],y=eval.points[[2]],z=estimate,levels=cont[paste0(100-levels,"%")]))
 	val<-sapply(co,function(x){x$level})
@@ -23,7 +23,7 @@ kde2pol<-function(
 			spChFIDs(poly[[i]], as.character(i))
 		})
 		poly<-do.call("rbind",poly)
-		proj4string(poly)<-CRS(prj)###############
+		proj4string(poly)<-CRS(proj4string)
 		poly
 	})
 	if(cut && !is.projected(poly[[1]])){
