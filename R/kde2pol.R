@@ -1,7 +1,7 @@
 kde2pol<-function(
 	
 	k,
-	prj,
+	proj4string,
 	levels=c(50,95),
 	cut=TRUE
 	
