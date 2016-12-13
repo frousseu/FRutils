@@ -2,7 +2,7 @@ Package: FRutils
 Type: Package
 Title: Useful functions
 Version: 0.0
-Date: 2016-10-25
+Date: 2016-12-12
 Author: Francois Rousseu
 Maintainer: Francois Rousseu <francoisrousseu@hotmail.com>
 Depends: sp, magrittr, hexbin, ks, rgeos
