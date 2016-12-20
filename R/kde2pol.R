@@ -10,9 +10,11 @@ kde2pol<-function(
 	if(missing(proj4string)){
 		stop("Missing \"proj4string\" argument")
 	}
-	co<-with(k,contourLines(x=eval.points[[1]],y=eval.points[[2]],z=estimate,levels=cont[paste0(100-levels,"%")]))
-	val<-sapply(co,function(x){x$level})
-	co<-lapply(unique(val),function(x){co[val==x]})
+	co<-lapply(paste0(100 - levels, "%"),function(i){
+		 with(k,
+			  contourLines(x=eval.points[[1]],y=eval.points[[2]],z=estimate,levels=cont[i])
+		 )
+	})
 	poly<-lapply(co,function(j){
 		poly<-lapply(j,function(i){
 			x<-data.frame(i$x,i$y)
