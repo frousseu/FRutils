@@ -19,14 +19,14 @@ colo.scale(x,cols=c("white","yellow","tomato3","darkred"),
   \item{breaks}{A numeric vector. If breaks are given, value will be classified into each color provided the number of breaks equals the number of colors given. In other words, \code{length(breaks) == length(cols) + 1}}
 }
 \details{
-This function is a simple wrapper for the \link{\code{colorRamp}} function in the \link{\code{grDevices}} package.
+This function is a simple wrapper for the \code{\link{colorRamp}} function.
 }
 \value{
 A color vector of the same length as \code{x}
 }
 
 \seealso{
-\link{\code{colorRamp}}, \link{\code{colorRampPalette}}
+\code{\link{colorRamp}}, \code{\link{colorRampPalette}}
 }
 \examples{
 
