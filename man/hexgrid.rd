@@ -14,7 +14,7 @@ hexgrid(x,width=NULL,n=NULL,buffer=NULL,convex=TRUE,seed=1)
 \arguments{
   \item{x}{A spatial object, ideally projected.}
   \item{width}{Approximate width of hexagonal cell}
-  \item{n}{Number of divisions to approximately split the convex hull along the X direction.}
+  \item{n}{Number of divisions to approximately split the convex hull along the x direction.}
   \item{buffer}{Width of a buffer around the convex hull of \code{x} to extend the grid}
   \item{convex}{Keep cells over convex hull or over \code{x} objects?}
   \item{seed}{A seed to obtain the same grid since it is based on \code{\link{spsample}}.}
