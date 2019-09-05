@@ -42,7 +42,7 @@ colo.scale<-function(
 			color<-rgb(colorRamp(cols)(y),maxColorValue=256)
 			return(re(color))
 		}else{
-			if(any(y<0) && center){
+			if(center){
 				m<-which.max(c(abs(min(y)),max(y)))     
 				sca<-0.5/ifelse(m==1,abs(min(y)),max(y))     
 				xx<-sca*y+0.5
