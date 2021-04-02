@@ -3,7 +3,7 @@ colo.scale<-function(
 	x,
 	cols=c("white","yellow","tomato3","darkred"),
 	center=FALSE,
-	rescale01=TRUE,
+	rescale01=FALSE,
 	breaks=NULL
 
 ){
@@ -50,7 +50,7 @@ colo.scale<-function(
 				color<-rgb(colorRamp(cols)(xx),maxColorValue=256) 
 				return(re(color))
 			}else{
-				color<-rgb(colorRamp(cols)((max(y)-y)/(max(y)-min(y))),maxColorValue=256) 
+				color<-rgb(colorRamp(cols)((y-min(y))/(max(y)-min(y))),maxColorValue=256) 
 				return(re(color))
 			}
 		}
