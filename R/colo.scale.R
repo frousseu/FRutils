@@ -2,7 +2,8 @@ colo.scale<-function(
 
 	x,
 	cols=c("white","yellow","tomato3","darkred"),
-	center=TRUE,
+	center=FALSE,
+	rescale01=TRUE,
 	breaks=NULL
 
 ){
@@ -38,7 +39,7 @@ colo.scale<-function(
 		color<-colop(length(unique(y)))
 		return(re(color[match(y,unique(y))]))
 	}else{  
-		if(all(y>=0 & y<=1)){
+		if(all(y>=0 & y<=1) && rescale01){
 			color<-rgb(colorRamp(cols)(y),maxColorValue=256)
 			return(re(color))
 		}else{
